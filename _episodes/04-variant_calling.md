@@ -511,6 +511,7 @@ to unzip it, and then drag the program into your Applications folder.
 2. Load our reference genome file (`ecoli_rel606.fasta`) into IGV using the **"Load Genomes from File..."** option under the **"Genomes"** pull-down menu.
 3. Load our BAM file (`SRR2584866.aligned.sorted.bam`) using the **"Load from File..."** option under the **"File"** pull-down menu. 
 4.  Do the same with our VCF file (`SRR2584866_final_variants.vcf`).
+5.  Do the same with the annotation file (`ecoli_rel606.gff`).
 
 Your IGV browser should look like the screenshot below:
 
