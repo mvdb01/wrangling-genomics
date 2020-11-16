@@ -33,19 +33,19 @@ The alignment process consists of two steps:
 
 # Setting up
 
-First we download the reference genome for *E. coli* REL606. Although we could copy or move the file with `cp` or `mv`, most genomics workflows begin with a download step, so we will practice that here. 
+First we copy the reference genome for *E. coli* REL606. We have downloaded this from NCBI servers with this command:
+`$ curl -L -o data/ref_genome/ecoli_rel606.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/017/985/GCA_000017985.1_ASM1798v1/GCA_000017985.1_ASM1798v1_genomic.fna.gz`
 
 ~~~
 $ cd ~/dc_workshop
 $ mkdir -p data/ref_genome
-$ curl -L -o data/ref_genome/ecoli_rel606.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/017/985/GCA_000017985.1_ASM1798v1/GCA_000017985.1_ASM1798v1_genomic.fna.gz
-$ gunzip data/ref_genome/ecoli_rel606.fasta.gz
+$ cp /mnt/linapps/carpentry/ref_genome/ecoli_rel606.fasta data/ref_genome/
 ~~~
 {: .bash}
 
 > ## Exercise 
 > 
-> We saved this file as `data/ref_genome/ecoli_rel606.fasta.gz` and then decompressed it. 
+> We copied this file to `data/ref_genome/ecoli_rel606.fasta`. 
 > What is the real name of the genome? 
 > 
 >> ## Solution
@@ -55,16 +55,16 @@ $ gunzip data/ref_genome/ecoli_rel606.fasta.gz
 >> ~~~
 >> {: .bash}
 >> 
->> The name of the sequence follows the `>` character. The name is `CP000819.1 Escherichia coli B str. REL606, complete genome`.
->> Keep this chromosome name (`CP000819.1`) in mind, as we will use it later in the lesson. 
+>> The name of the sequence follows the `>` character. The name is `NC_012967.1 Escherichia coli B str. REL606, complete genome`.
+>> Keep this chromosome name (`NC_012967.1`) in mind, as we will use it later in the lesson. 
 > {: .solution}
 {: .challenge}
 
-We will also download a set of trimmed FASTQ files to work with. These are small subsets of our real trimmed data, 
+We will also copy a set of trimmed FASTQ files to work with. These are small subsets of our real trimmed data, 
 and will enable us to run our variant calling workflow quite quickly. 
 
 ~~~
-$ curl -L -o sub.tar.gz https://ndownloader.figshare.com/files/14418248
+$ cp /mnt/linapps/carpentry/sub.tar.gz .
 $ tar xvf sub.tar.gz
 $ mv sub/ ~/dc_workshop/data/trimmed_fastq_small
 ~~~
@@ -454,7 +454,7 @@ Below the horizontal line, we can see all of the reads in our sample aligned wit
 positions where the called base differs from the reference are shown. You can use the arrow keys on your keyboard
 to scroll or type `?` for a help menu. To navigate to a specific position, type `g`. A dialogue box will appear. In
 this box, type the name of the "chromosome" followed by a colon and the position of the variant you would like to view
-(e.g. for this sample, type `CP000819.1:50` to view the 50th base. Type `Ctrl^C` or `q` to exit `tview`. 
+(e.g. for this sample, type `NC_012967.1:50` to view the 50th base. Type `Ctrl^C` or `q` to exit `tview`. 
 
 > ## Exercise 
 > 
@@ -468,7 +468,7 @@ this box, type the name of the "chromosome" followed by a colon and the position
 >> ~~~
 >> {: .bash}
 >> 
->> Then type `g`. In the dialogue box, type `CP000819.1:4377265`. 
+>> Then type `g`. In the dialogue box, type `NC_012967.1:4377265`. 
 >> `G` is the variant. `A` is canonical. This variant possibly changes the phenotype of this sample to hypermutable. It occurs
 >> in the gene *mutL*, which controls DNA mismatch repair.
 > {: .solution}
@@ -491,13 +491,13 @@ $ cd ~/Desktop/files_for_igv
 
 Now we will transfer our files to that new directory. Remember to replace the text between the `@` and the `:` 
 with your AWS instance number. The commands to `scp` always go in the terminal window that is connected to your
-local computer (not your AWS instance).
+local computer (not your cloud instance).
 
 ~~~
-$ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam ~/Desktop/files_for_igv
-$ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam.bai ~/Desktop/files_for_igv
-$ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/data/ref_genome/ecoli_rel606.fasta ~/Desktop/files_for_igv
-$ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/results/vcf/SRR2584866_final_variants.vcf ~/Desktop/files_for_igv
+$ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam ~/Desktop/files_for_igv
+$ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam.bai ~/Desktop/files_for_igv
+$ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/data/ref_genome/ecoli_rel606.fasta ~/Desktop/files_for_igv
+$ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/results/vcf/SRR2584866_final_variants.vcf ~/Desktop/files_for_igv
 ~~~
 {: .bash}
 
