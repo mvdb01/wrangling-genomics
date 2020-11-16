@@ -128,7 +128,7 @@ While using FastQC we saw that Nextera adapters were present in our samples.
 The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
 
 ~~~
-$ cp ~/.miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/NexteraPE-PE.fa .
+$ cp /mnt/linapps/conda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/NexteraPE-PE.fa .
 ~~~
 {: .bash}
 
@@ -266,7 +266,7 @@ SRR2584863_2un.trim.fastq.gz  SRR2589044_1.fastq.gz
 >
 >> ## Solution
 >> ~~~
->> $ ls ~/miniconda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> $ ls /mnt/linapps/conda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
 >> ~~~
 >> {: .bash}
 >>
@@ -310,25 +310,23 @@ SRR2584863_2un.trim.fastq.gz  SRR2584866_2un.trim.fastq.gz  SRR2589044_2un.trim.
 >
 >> ## Solution
 >>
->> In your AWS terminal window do:
+>> In your cloud terminal window do:
 >>
 >> ~~~
 >> $ fastqc ~/dc_workshop/data/trimmed_fastq/*.fastq*
 >> ~~~
 >> {: .bash}
 >>
->> In a new tab in your terminal do:
+>> In a new tab (local computer) in your terminal do:
 >>
 >> ~~~
 >> $ mkdir ~/Desktop/fastqc_html/trimmed
->> $ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
+>> $ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
 >> ~~~
 >> {: .bash}
 >> 
 >> Then take a look at the html files in your browser.
 >> 
->> Remember to replace everything between the `@` and `:` in your scp
->> command with your AWS instance number.
 >>
 >> After trimming and filtering, our overall quality is much higher, 
 >> we have a distribution of sequence lengths, and more samples pass 
