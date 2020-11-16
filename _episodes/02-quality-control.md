@@ -69,11 +69,11 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 > avoid needing to download the data and instead use the data files provided in the `.backup/` directory.
 > 
 > ~~~
-> $ cp ~/.backup/untrimmed_fastq/*fastq.gz .
+> $ cp /mnt/linapps/carpentry/dc_workshop/data/untrimmed_fastq/*fastq.gz .
 > ~~~
 > {: .bash}
 > 
-> This command creates a copy of each of the files in the `.backup/untrimmed_fastq/` directory that end in `fastq.gz` and
+> This command creates a copy of each of the files in the `/mnt/linapps/carpentry/dc_workshop/data/untrimmed_fastq/` directory that end in `fastq.gz` and
 > places the copies in the current working directory (signified by `.`). 
 {: .callout}
 
@@ -190,7 +190,7 @@ very poor (`#` = a quality score of 2).
 > {: .solution}
 {: .challenge}
 
-At this point, lets validate that all the relevant tools are installed. If you are using the AWS AMI then these _should_ be preinstalled. 
+At this point, lets validate that all the relevant tools are installed. 
 
 ~~~
 $ fastqc -h
@@ -475,9 +475,9 @@ $ cd ~/dc_workshop/results/fastqc_untrimmed_reads/
 If we were working on our local computers, we'd be able to look at 
 each of these HTML files by opening them in a web browser.
 
-However, these files are currently sitting on our remote AWS 
+However, these files are currently sitting on our remote cloud
 instance, where our local computer can't see them.
-And, since we are only logging into the AWS instance via the 
+And, since we are only logging into the cloud instance via the 
 command line - it doesn't have any web browser setup to display 
 these files either.
 
@@ -490,8 +490,7 @@ use `scp`, which we learned yesterday in the Shell Genomics lesson.
 First we
 will make a new directory on our computer to store the HTML files
 we're transferring. Let's put it on our desktop for now. Open a new
-tab in your terminal program (you can use the pull down menu at the
-top of your screen or the Cmd+t keyboard shortcut) and type: 
+tab in your terminal program (In MobaXterm you can use "Open new tab" under the menu item "Terminal" and for Mac use the Cmd+t keyboard shortcut or use the "+" sign next to the current open terminal.) and type: 
 
 ~~~
 $ mkdir -p ~/Desktop/fastqc_html 
@@ -501,14 +500,13 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
 As a reminder, the first part
-of the command `dcuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
-the address for your remote computer. Make sure you replace everything
-after `dcuser@` with your instance number (the one you used to log in). 
+of the command `YOUR-NETID@student-linux.tudelft.nl` is
+the address for the remote computer. Make sure you replace `YOUR-NETID` with your login credentials. 
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't
@@ -567,8 +565,8 @@ We've now looked at quite a few "Per base sequence quality" FastQC graphs, but t
 
 Now that we've looked at our HTML reports to get a feel for the data,
 let's look more closely at the other output files. Go back to the tab
-in your terminal program that is connected to your AWS instance
-(the tab label will start with `dcuser@ip`) and make sure you're in
+in your terminal program that is connected to your cloud instance
+(Check in that tab with `uname -a`,  It should respond with `Linux vm0X-bt-edu.tnw.tudelft.nl`) and make sure you're in
 our results subdirectory.   
 
 ~~~
@@ -742,6 +740,13 @@ We can make a record of the results we obtained for all our samples
 by concatenating all of our `summary.txt` files into a single file 
 using the `cat` command. We'll call this `fastqc_summaries.txt` and move
 it to `~/dc_workshop/docs`.
+
+First we have to make the folder `docs` 
+
+~~~
+$ mkdir -p ~/dc_workshop/docs/ 
+~~~
+{: .bash}
 
 ~~~
 $ cat */summary.txt > ~/dc_workshop/docs/fastqc_summaries.txt 
