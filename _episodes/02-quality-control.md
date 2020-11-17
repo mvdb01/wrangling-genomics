@@ -65,8 +65,8 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 
 > ## Faster option
 > 
-> If your workshop is short on time or the venue's internet connection is weak or unstable, learners can 
-> avoid needing to download the data and instead use the data files provided in the `.backup/` directory.
+> When short on time or the internet connection is weak or unstable, learners can 
+> avoid needing to download the data and instead use the data files provided in the `/mnt/linapps/carpentry/dc_workshop/data/untrimmed_fastq/` directory.
 > 
 > ~~~
 > $ cp /mnt/linapps/carpentry/dc_workshop/data/untrimmed_fastq/*fastq.gz .
