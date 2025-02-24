@@ -73,7 +73,7 @@ curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/006/SRR2584866/SRR2584866_2.fa
 > ~~~
 > {: .bash}
 > 
-> This command creates a copy of each of the files in the `/mnt/linapps/carpentry/dc_workshop/data/untrimmed_fastq/` directory that end in `fastq.gz` and
+> This command creates a copy of each of the files in the `/projects/lm3601/share/dc_workshop/data/untrimmed_fastq/` directory that end in `fastq.gz` and
 > places the copies in the current working directory (signified by `.`). 
 {: .callout}
 
@@ -500,12 +500,32 @@ $ mkdir -p ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+### Note on using zsh
+
+If you are using zsh instead of bash (macOS for example changed the default recently to zsh), it is
+likely that a `no matches found` error will be displayed. The reason for this is that the wildcard
+("\*") is not correctly interpreted. To fix this problem the wildcard needs to be escaped with a "\\":
+
+```bash
+$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/results/fastqc_untrimmed_reads/\*.html ~/Desktop/fastqc_html
+```
+
+Alternatively, you can put the whole path into quotation marks:
+
+```bash
+$ scp "YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/results/fastqc_untrimmed_reads/*.html" ~/Desktop/fastqc_html
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 As a reminder, the first part
-of the command `YOUR-NETID@student-linux.tudelft.nl` is
+of the command `YOUR-NETID@login.delftblue.tudelft.nl` is
 the address for the remote computer. Make sure you replace `YOUR-NETID` with your login credentials. 
 
 The second part starts with a `:` and then gives the absolute path
