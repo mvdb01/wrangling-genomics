@@ -128,7 +128,7 @@ While using FastQC we saw that Nextera adapters were present in our samples.
 The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
 
 ~~~
-$ cp /mnt/linapps/conda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/NexteraPE-PE.fa .
+$ cp /projects/lm3601/share/trimmomatic/adapters/NexteraPE-PE.fa .
 ~~~
 {: .bash}
 
@@ -266,7 +266,7 @@ SRR2584863_2un.trim.fastq.gz  SRR2589044_1.fastq.gz
 >
 >> ## Solution
 >> ~~~
->> $ ls /mnt/linapps/conda3/pkgs/trimmomatic-0.38-0/share/trimmomatic-0.38-0/adapters/
+>> $ ls /projects/lm3601/share/trimmomatic/adapters/
 >> ~~~
 >> {: .bash}
 >>
@@ -321,7 +321,7 @@ SRR2584863_2un.trim.fastq.gz  SRR2584866_2un.trim.fastq.gz  SRR2589044_2un.trim.
 >>
 >> ~~~
 >> $ mkdir ~/Desktop/fastqc_html/trimmed
->> $ scp YOUR-NETID@student-linux.tudelft.nl:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
+>> $ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
 >> ~~~
 >> {: .bash}
 >> 
