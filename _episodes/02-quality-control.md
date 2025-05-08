@@ -317,7 +317,12 @@ The program 'fastqc' is currently not installed. You can install it by typing:
 sudo apt-get install fastqc
 ~~~
 
-If this happens check with your instructor before trying to install it. 
+If this happens you need to load the conda environment first.
+
+~~~
+$ source /mnt/linapps/conda3loader
+$ conda activate DCW
+~~~
 
 ## Assessing Quality using FastQC
 In real life, you won't be assessing the quality of your reads by visually inspecting your 
