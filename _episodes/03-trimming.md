@@ -266,7 +266,7 @@ SRR2584863_2un.trim.fastq.gz  SRR2589044_1.fastq.gz
 >
 >> ## Solution
 >> ~~~
->> $ ls /projects/lm3601/share/trimmomatic/adapters/
+>> $ ls /mnt/linapps/share/trimmomatic/adapters/
 >> ~~~
 >> {: .bash}
 >>
@@ -321,7 +321,7 @@ SRR2584863_2un.trim.fastq.gz  SRR2584866_2un.trim.fastq.gz  SRR2589044_2un.trim.
 >>
 >> ~~~
 >> $ mkdir ~/Desktop/fastqc_html/trimmed
->> $ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
+>> $ scp YOUR-NETID@vm0X-bt-edu.tnw.tudelft.nl:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
 >> ~~~
 >> {: .bash}
 >> 
