@@ -128,7 +128,7 @@ While using FastQC we saw that Nextera adapters were present in our samples.
 The adapter sequences came with the installation of trimmomatic, so we will first copy these sequences into our current directory.
 
 ~~~
-$ cp /projects/lm3601/share/trimmomatic/adapters/NexteraPE-PE.fa .
+$ cp /mnt/linapps/share/adapters/NexteraPE-PE.fa .
 ~~~
 {: .bash}
 
