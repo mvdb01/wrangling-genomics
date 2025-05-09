@@ -39,7 +39,7 @@ First we copy the reference genome for *E. coli* REL606. We have downloaded this
 ~~~
 $ cd ~/dc_workshop
 $ mkdir -p data/ref_genome
-$ cp /projects/lm3601/share/dc_workshop/ref_genome/ecoli_rel606.* data/ref_genome/
+$ cp /mnt/linapps/share/dc_workshop/ref_genome/ecoli_rel606.* data/ref_genome/
 ~~~
 {: .bash}
 
