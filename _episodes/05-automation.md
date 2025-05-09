@@ -52,13 +52,13 @@ And here's the one you wrote for running Trimmomatic on all of our `.fastq` samp
 
 ~~~
 $ for infile in *_1.fastq.gz
-> do
->   base=$(basename ${infile} _1.fastq.gz)
->   trimmomatic PE ${infile} ${base}_2.fastq.gz \
->                ${base}_1.trim.fastq.gz ${base}_1un.trim.fastq.gz \
->                ${base}_2.trim.fastq.gz ${base}_2un.trim.fastq.gz \
->                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15 
-> done
+ do
+   base=$(basename ${infile} _1.fastq.gz)
+   trimmomatic PE ${infile} ${base}_2.fastq.gz \
+                ${base}_1.trim.fastq.gz ${base}_1un.trim.fastq.gz \
+                ${base}_2.trim.fastq.gz ${base}_2un.trim.fastq.gz \
+                SLIDINGWINDOW:4:20 MINLEN:25 ILLUMINACLIP:NexteraPE-PE.fa:2:40:15 
+ done
 ~~~
 {: .bash}
 
@@ -448,7 +448,7 @@ $ bash run_variant_calling.sh
 > over time? Examine the metadata table. What is one reason the number of mutations may have changed the way they did?
 > 
 > Hint: You can find a copy of the output files for the subsampled trimmed FASTQ file variant calling in the 
-> `~/.solutions/wrangling-solutions/variant_calling_auto/` directory.
+> `/mnt/linapps/share/dc_workshop/.solutions/wrangling-solutions/variant_calling_auto/` directory.
 > 
 >> ## Solution
 >> 
@@ -472,7 +472,7 @@ $ bash run_variant_calling.sh
 > 
 > If you have time after completing the previous exercise, use `run_variant_calling.sh` to run the variant calling pipeline 
 > on the full-sized trimmed FASTQ files. You should have a copy of these already in `~/dc_workshop/data/trimmed_fastq`, but if 
-> you don't, there is a copy in `~/.solutions/wrangling-solutions/trimmed_fastq`. Does the number of variants change per sample?
+> you don't, there is a copy in `/mnt/linapps/share/dc_workshop/.solutions/wrangling-solutions/trimmed_fastq`. Does the number of variants change per sample?
 {: .challenge} 
 
 
