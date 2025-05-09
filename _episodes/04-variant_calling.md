@@ -254,7 +254,7 @@ We have now generated a file with coverage information for every base.
 Identify SNPs using bcftools `call`. We have to specify ploidy with the flag `--ploidy`, which is one for the haploid *E. coli*. `-m` allows for multiallelic and rare-variant calling, `-v` tells the program to output variant sites only (not every site in the genome), and `-o` specifies where to write the output file:
 
 ~~~
-$ bcftools call --ploidy 1 -m -v -o results/bcf/SRR2584866_variants.vcf results/bcf/SRR2584866_raw.bcf 
+$ bcftools call --ploidy 1 -m -v -o results/vcf/SRR2584866_variants.vcf results/bcf/SRR2584866_raw.bcf 
 ~~~
 {: .bash}
 
@@ -263,7 +263,7 @@ $ bcftools call --ploidy 1 -m -v -o results/bcf/SRR2584866_variants.vcf results/
 Filter the SNPs for the final output in VCF format, using `vcfutils.pl`:
 
 ~~~
-$ vcfutils.pl varFilter results/bcf/SRR2584866_variants.vcf  > results/vcf/SRR2584866_final_variants.vcf
+$ vcfutils.pl varFilter results/vcf/SRR2584866_variants.vcf  > results/vcf/SRR2584866_final_variants.vcf
 ~~~
 {: .bash}
 
