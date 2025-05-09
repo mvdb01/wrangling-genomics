@@ -64,7 +64,7 @@ We will also copy a set of trimmed FASTQ files to work with. These are small sub
 and will enable us to run our variant calling workflow quite quickly. 
 
 ~~~
-$ cp -r /projects/lm3601/share/dc_workshop/data/trimmed_fastq_small ~/dc_workshop/data/
+$ cp -r /mnt/linapps/share/dc_workshop/data/trimmed_fastq_small ~/dc_workshop/data/
 ~~~
 {: .bash}
 
