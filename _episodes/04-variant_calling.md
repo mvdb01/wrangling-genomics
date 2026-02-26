@@ -488,15 +488,15 @@ $ cd ~/Desktop/files_for_igv
 {: .bash}
 
 Now we will transfer our files to that new directory. Remember to replace the text between the `@` and the `:` 
-with your AWS instance number. The commands to `scp` always go in the terminal window that is connected to your
+with your Cloud instance number. The commands to `scp` always go in the terminal window that is connected to your
 local computer (not your cloud instance).
 
 ~~~
-$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam ~/Desktop/files_for_igv
-$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam.bai ~/Desktop/files_for_igv
-$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/data/ref_genome/ecoli_rel606.fasta ~/Desktop/files_for_igv
-$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/data/ref_genome/ecoli_rel606.gff ~/Desktop/files_for_igv
-$ scp YOUR-NETID@login.delftblue.tudelft.nl:~/dc_workshop/results/vcf/SRR2584866_final_variants.vcf ~/Desktop/files_for_igv
+$ scp YOUR-NETID@vm0X-bt-edu.tnw.tudelft.nl:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam ~/Desktop/files_for_igv
+$ scp YOUR-NETID@vm0X-bt-edu.tnw.tudelft.nl:~/dc_workshop/results/bam/SRR2584866.aligned.sorted.bam.bai ~/Desktop/files_for_igv
+$ scp YOUR-NETID@vm0X-bt-edu.tnw.tudelft.nl:~/dc_workshop/data/ref_genome/ecoli_rel606.fasta ~/Desktop/files_for_igv
+$ scp YOUR-NETID@vm0X-bt-edu.tnw.tudelft.nl:~/dc_workshop/data/ref_genome/ecoli_rel606.gff ~/Desktop/files_for_igv
+$ scp YOUR-NETID@vm0X-bt-edu.tnw.tudelft.nl:~/dc_workshop/results/vcf/SRR2584866_final_variants.vcf ~/Desktop/files_for_igv
 ~~~
 {: .bash}
 
